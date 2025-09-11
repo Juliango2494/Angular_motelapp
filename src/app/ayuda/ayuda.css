@@ -1,0 +1,72 @@
+.ayuda-container {
+  max-width: 600px;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: rgba(240, 248, 255, 0.777);
+}
+
+.ayuda-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.ayuda-container p {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.ayuda-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.ayuda-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #444;
+}
+
+.ayuda-form input,
+.ayuda-form select,
+.ayuda-form textarea {
+  margin-top: 0.5rem;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.ayuda-form input:focus,
+.ayuda-form select:focus,
+.ayuda-form textarea:focus {
+  outline: none;
+  border-color: #0077cc;
+  box-shadow: 0 0 5px rgba(0,119,204,0.3);
+}
+
+.btn-enviar {
+  padding: 0.8rem;
+  background: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.btn-enviar:hover {
+  background: #005fa3;
+}
+body{
+    display: flex;
+    justify-content: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-image: url('/assets/home/background_searchbar.webp');
+}

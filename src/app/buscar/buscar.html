@@ -1,5 +1,32 @@
 <app-nav></app-nav>
 <body>
-    <p>buscar works</p>
+    <div class="buscar-container">
+        <h2>Habitaciones disponibles</h2>
+
+        <!-- Filtros -->
+        <div class="filters">
+            <button (click)="cambiarFiltro(0)" [class.active]="selectedMotel() === 0">
+            Todos
+            </button>
+            <button *ngFor="let motel of motels()" 
+                    (click)="cambiarFiltro(motel.id)" 
+                    [class.active]="selectedMotel() === motel.id">
+            {{ motel.name }}
+            </button>
+        </div>
+
+        <!-- Grid de habitaciones -->
+        <div class="grid">
+            <div class="card" *ngFor="let habitacion of habitacionesFiltradas()">
+                <img [src]="habitacion.image" [alt]="habitacion.motelName" />
+                <div class="card-body">
+                    <h3>{{ habitacion.motelName }}</h3>
+                    <p class="location">{{ habitacion.location }}</p>
+                    <p class="description">{{ habitacion.description }}</p>
+                    <p class="price">Desde ${{ habitacion.price | number:'1.0-0' }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <app-footer></app-footer>

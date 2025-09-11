@@ -1,3 +1,39 @@
 <app-nav></app-nav>
-<p>ayuda works!</p>
+<body>
+    <div class="ayuda-container">
+
+        <h2>Centro de Ayuda</h2>
+        <p>Si tienes alguna pregunta o inconveniente, completa el formulario y nos pondremos en contacto contigo.</p>
+
+        <form (ngSubmit)="enviar()" class="ayuda-form">
+            <label>
+            Nombre completo
+            <input type="text" [(ngModel)]="nombre" name="nombre" required />
+            </label>
+
+            <label>
+            Correo electrónico
+            <input type="email" [(ngModel)]="correo" name="correo" required />
+            </label>
+
+            <label>
+            Motivo
+            <select [(ngModel)]="motivo" name="motivo" required>
+                <option value="" disabled selected>Selecciona un motivo</option>
+                <option value="consulta">Consulta</option>
+                <option value="soporte">Soporte técnico</option>
+                <option value="sugerencia">Sugerencia</option>
+                <option value="otro">Otro</option>
+            </select>
+            </label>
+
+            <label>
+            Mensaje
+            <textarea [(ngModel)]="mensaje" name="mensaje" rows="4" required></textarea>
+            </label>
+
+            <button type="submit" class="btn-enviar">Enviar</button>
+        </form>
+        </div>
+</body>
 <app-footer></app-footer>

@@ -1,7 +1,9 @@
 import { Component, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; 
 import { Nav } from '../shared/components/nav/nav';
 import { Footer } from '../shared/components/footer/footer';
+import { SessionService } from '../shared/services/session.service';
 
 interface Motel {
   id: number;
@@ -16,19 +18,28 @@ interface Motel {
 interface Habitacion {
   motelId: number;
   motelName: string;
+  habitacionName: string;
   location: string;
   price: number;
-  description: string;
   image: string;
 }
 
+interface Reserva {
+  usuario: string;
+  habitacion: Habitacion;
+  fecha: Date;
+}
+
 @Component({
-  selector: 'app-buscar',
-  imports: [Footer,Nav,CommonModule],
-  templateUrl: './buscar.html',
-  styleUrl: './buscar.css'
+  selector: 'app-reserva',
+  imports: [Footer, Nav, CommonModule, FormsModule], 
+  templateUrl: './reserva.html',
+  styleUrl: './reserva.css'
 })
-export class Buscar {
+export class Reservas {   
+
+  constructor(private session: SessionService) {}
+
   protected readonly motels = signal<Motel[]>([
     {
       id: 1,
@@ -77,29 +88,55 @@ export class Buscar {
   ])
   protected readonly habitaciones = signal<Habitacion[]>(
     this.motels().flatMap(motel =>
-      motel.images.slice(1).map(img => ({
+      motel.images.slice(1).map((img, index) => ({
         motelId: motel.id,
         motelName: motel.name,
+        habitacionName: `Habitación ${index + 1}`,
         location: motel.location,
         price: motel.price,
-        description: motel.description,
         image: img
       }))
     )
   );
 
-  protected readonly selectedMotel = signal<number>(0);
+  protected readonly query = signal('');
+  protected readonly resultados = computed(() => {
+    const q = this.query().toLowerCase();
+    return this.habitaciones().filter(
+      h =>
+        h.motelName.toLowerCase().includes(q) ||
+        h.habitacionName.toLowerCase().includes(q)
+    );
+  });
 
-  protected readonly habitacionesFiltradas = computed(() =>
-    this.selectedMotel() === 0
-      ? this.habitaciones()
-      : this.habitaciones().filter(
-          h => h.motelId === this.selectedMotel()
-        )
-  );
+  protected readonly reservas = signal<Reserva[]>([]);
 
-  cambiarFiltro(id: number) {
-    this.selectedMotel.set(id);
+  reservar(habitacion: Habitacion) {
+    const usuario = this.session.usuario();
+    if (!usuario) {
+      alert('Debes iniciar sesión para reservar');
+      return;
+    }
+
+    const nuevaReserva: Reserva = {
+      usuario,
+      habitacion,
+      fecha: new Date()
+    };
+
+    this.reservas.update(rs => [...rs, nuevaReserva]);
+    alert(`Reserva creada para ${habitacion.habitacionName} en ${habitacion.motelName}`);
   }
+
+  protected readonly misReservas = computed(() => {
+    const usuario = this.session.usuario();
+    return this.reservas().filter(r => r.usuario === usuario);
+  });
+
+  
+  onQueryChange(value: string) {
+    this.query.set(value);
+  }
+  
 
 }
