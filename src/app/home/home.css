@@ -1,0 +1,89 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('/assets/home/background_searchbar.webp');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+}
+.search-bar{
+    display: flex;
+    background-color: rgba(185, 171, 171, 0.562);
+    padding: 25px;
+    border-radius: 5px;
+}
+button{
+    margin-left: 1%;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    font-size: 17px;
+}
+button:hover{
+    cursor: pointer;
+    background-color: rgb(223, 221, 221);
+}
+.input1{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+    padding: 8px;
+}
+input{
+    border: none;
+    padding: 8px;
+}
+.input2{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    padding: 8px;
+}
+.cards{
+    background-color: black;
+    padding: 40px;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    gap: 1%;
+    flex-wrap: wrap;
+}
+.card{
+    background-color: rgba(240, 248, 255, 0.397);
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden; 
+    transition: background-color 0.3s ease;
+    
+}
+.card img {
+  width: 100%;
+  height: 180px; /* 👉 altura fija para todas */
+  object-fit: cover; /* 👉 mantiene proporción y recorta */
+  border-radius: 10px 10px 0 0; /* redondear solo arriba */
+}
+
+.card h2 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+}
+
+.card p {
+  font-size: 14px;
+  flex-grow: 1; /* 👉 ocupa espacio disponible */
+}
+
+.card span {
+  font-weight: bold;
+  margin-top: auto; /* 👉 manda el precio al fondo */
+}
+
+.card:hover {
+  cursor: pointer;
+  background-color: rgba(240, 248, 255, 0.562);
+}

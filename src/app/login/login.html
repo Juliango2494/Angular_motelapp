@@ -1,0 +1,32 @@
+<app-nav></app-nav>
+<body>
+    <div class="auth-container">
+        <div class="auth-card" [class.flipped]="isRegisterMode">
+            <!-- Login -->
+            <div class="form login-form">
+                <h2>Iniciar Sesión</h2>
+                <form (ngSubmit)="login()">
+                    <input type="text" placeholder="Usuario" [(ngModel)]="username" name="username" required>
+                    <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required>
+                    <button type="submit">Ingresar</button>
+                </form>
+                <p class="toggle" (click)="toggleMode()">¿No tienes cuenta? Regístrate</p>
+                <p class="message">{{ message }}</p>
+            </div>
+
+            <!-- Registro -->
+            <div class="form register-form">
+                <h2>Registro</h2>
+                <form (ngSubmit)="register()">
+                    <input type="text" placeholder="Nombre de usuario" [(ngModel)]="newUser.username" name="newUsername" required>
+                    <input type="email" placeholder="Correo electrónico" [(ngModel)]="newUser.email" name="email" required>
+                    <input type="password" placeholder="Contraseña" [(ngModel)]="newUser.password" name="newPassword" required>
+                    <button type="submit">Registrarse</button>
+                </form>
+                <p class="toggle" (click)="toggleMode()">¿Ya tienes cuenta? Inicia sesión</p>
+                <p class="message">{{ message }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+<app-footer></app-footer>

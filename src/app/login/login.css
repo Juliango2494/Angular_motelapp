@@ -1,0 +1,101 @@
+body{
+    
+    background-image: url('/assets/home/background_searchbar.webp');
+}
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.auth-card {
+  width: 350px;
+  height: 420px;
+  perspective: 1000px;
+}
+
+.form {
+  background: rgba(255, 255, 255, 0.416);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.form input {
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.form button {
+  margin-top: 15px;
+  padding: 12px;
+  border: none;
+  background: #0d0f15;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: background 0.3s ease;
+}
+
+.form button:hover {
+  background: #764ba2;
+}
+
+.toggle {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #101118;
+  cursor: pointer;
+}
+
+.toggle:hover {
+  text-decoration: underline;
+}
+
+/* Login por defecto */
+.login-form {
+  transform: rotateY(0deg);
+}
+
+/* Registro oculto detrás */
+.register-form {
+  transform: rotateY(180deg);
+}
+
+/* Efecto flip */
+.auth-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.auth-card.flipped {
+  transform: rotateY(180deg);
+}
+.message {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}

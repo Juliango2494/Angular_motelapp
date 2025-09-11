@@ -1,0 +1,20 @@
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 50px;
+    p{font-size: 18px;font-weight: bold;}
+    background-color: rgb(138, 36, 36);
+    img{border-radius: 15px;height: 80px;};
+    
+}
+.redes{
+    display: flex;
+    gap: 35px;
+    i{font-size: 30px;}
+}
+.creador{
+    display: flex;
+    gap: 10px;
+    align-items: end;
+}

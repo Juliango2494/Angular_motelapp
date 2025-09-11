@@ -1,0 +1,17 @@
+<nav>
+    <img [src]="logo()" alt="">
+    <div class="navegacion">
+        <a routerLink="/">Home</a>
+        <a routerLink="/buscar">Buscar</a>
+        <a routerLink="/reservas">Reservas</a>
+        <a routerLink="/perfil">Perfil</a>
+    </div>
+    <div class="sesion">
+        <p>{{usuario()}}</p>
+        <div>
+            <a routerLink="/login">Login</a>
+            <a routerLink="/ayuda">ayuda</a>
+        </div>
+    </div>
+</nav>
+
