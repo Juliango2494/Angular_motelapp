@@ -69,7 +69,7 @@ export class Buscar {
       images: [
         'assets/moteles/paradise1.jpg',
         'assets/moteles/paradise2.jpeg',
-        'assets/moteles/paradise.jpeg',
+        'assets/moteles/paradise3.jpeg',
         'assets/moteles/paradise4.jpeg',
         'assets/moteles/paradise5.jpeg'
       ]

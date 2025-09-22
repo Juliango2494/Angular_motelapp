@@ -1,37 +1,46 @@
 <app-nav></app-nav>
-<body>
-    <div class="reserva-container">
-        <h2>Reservas</h2>
+<body class="fondoEstandar">
+  <div class="reserva-container">
+    <h2>Reservas</h2>
 
-        <!-- Campo de búsqueda -->
-        <input
-            type="text"
-            placeholder="Buscar habitación o motel..."
-            [ngModel]="query()"
-            (ngModelChange)="onQueryChange($event)" />
-        <!-- Resultados -->
-        <div class="grid">
-            <div class="card" *ngFor="let h of resultados()">
-                <img [src]="h.image" [alt]="h.habitacionName" />
-                <div class="card-body">
-                    <h3>{{ h.habitacionName }}</h3>
-                    <p>{{ h.motelName }} - {{ h.location }}</p>
-                    <p class="price">Precio: ${{ h.price | number }}</p>
-                    <button (click)="reservar(h)">Reservar</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Reservas del usuario -->
-        <div class="mis-reservas" *ngIf="misReservas().length > 0">
-            <h3>Mis Reservas</h3>
-            <ul>
-            <li *ngFor="let r of misReservas()">
-                {{ r.habitacion.habitacionName }} en {{ r.habitacion.motelName }} -
-                {{ r.fecha | date:'short' }}
+    <!-- Reservas del usuario -->
+    @if (misReservas().length > 0) {
+      <div class="mis-reservas">
+        <h3>Mis Reservas</h3>
+        <ul>
+          @for (r of misReservas(); track r.fecha) {
+            <li>
+              {{ r.habitacion.habitacionName }} en {{ r.habitacion.motelName }} -
+              {{ r.fecha | date:'short' }}
             </li>
-            </ul>
+          }
+        </ul>
+      </div>
+    }
+
+    <!-- Campo de búsqueda -->
+    <input
+      type="text"
+      placeholder="Buscar habitación o motel..."
+      [ngModel]="query()"
+      (ngModelChange)="onQueryChange($event)" />
+
+    <!-- Resultados -->
+    <div class="grid">
+      @for (h of resultados(); track h.habitacionName) {
+        <div class="card">
+          <img [src]="h.image" [alt]="h.habitacionName" />
+          <div class="card-body">
+            <h3>{{ h.habitacionName }}</h3>
+            <p>{{ h.motelName }} - {{ h.location }}</p>
+            <p class="price">Precio: ${{ h.price | number }}</p>
+            <button (click)="reservar(h)">Reservar</button>
+          </div>
         </div>
+      }
     </div>
+
+    
+  </div>
 </body>
 <app-footer></app-footer>

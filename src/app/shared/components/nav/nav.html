@@ -1,16 +1,17 @@
 <nav>
     <img [src]="logo()" alt="">
-    <div class="navegacion">
+    <div class="navegacion" >
         <a routerLink="/">Home</a>
         <a routerLink="/buscar">Buscar</a>
         <a routerLink="/reserva">Reservas</a>
+        <a routerLink="/ayuda">Ayuda</a>
         <!-- <a routerLink="/perfil">Perfil</a> -->
     </div>
     <div class="sesion">
         <p>{{usuario()}}</p>
         <div>
             <a routerLink="/login">Login</a>
-            <a routerLink="/ayuda">ayuda</a>
+            <button (click)="cambiarTema()">Cambiar Tema</button>
         </div>
     </div>
 </nav>

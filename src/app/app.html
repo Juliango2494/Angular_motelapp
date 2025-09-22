@@ -1,2 +1,3 @@
-
-<router-outlet />
+<div [ngClass]="ui.temaOscuro() ? 'tema-oscuro' : 'tema-claro'">
+  <router-outlet></router-outlet>
+</div>
