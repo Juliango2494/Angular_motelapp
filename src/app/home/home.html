@@ -1,23 +1,24 @@
 <app-nav></app-nav>
 <body>
-    <div class="search-bar">
-        <input type="text" placeholder="Motel" class="input1">
-        <input type="text" placeholder="Tipo de Habitacion">
-        <input type="text" placeholder="Fecha">
-        <input type="text" placeholder="Hora" class="input2">
-        <button>Buscar</button>
-    </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Motel" class="input1">
+    <input type="text" placeholder="Tipo de Habitacion">
+    <input type="text" placeholder="Fecha">
+    <input type="text" placeholder="Hora" class="input2">
+    <button>Buscar</button>
+  </div>
 </body>
+
 <div class="cards">
-    <div *ngFor="let motel of motels()">
-        <div class="card">
-            <img [src]="motel.images[0]" alt="{{ motel.name }}">
-            <h2>{{ motel.name }}</h2>
-            <p>{{ motel.description }}</p>
-            <span>{{ motel.price | currency:'COP' }}</span>
-        </div>
+  @for (motel of motels(); track motel.id) {
+    <div class="card">
+      <img [src]="motel.images[0]" alt="{{ motel.name }}">
+      <h2>{{ motel.name }}</h2>
+      <p>{{ motel.description }}</p>
+      <span>{{ motel.price | currency:'COP' }}</span>
     </div>
+  }
 </div>
 
-
 <app-footer></app-footer>
+

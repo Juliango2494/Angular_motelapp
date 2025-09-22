@@ -3,7 +3,6 @@
   <div class="reserva-container">
     <h2>Reservas</h2>
 
-    <!-- Reservas del usuario -->
     @if (misReservas().length > 0) {
       <div class="mis-reservas">
         <h3>Mis Reservas</h3>
@@ -18,14 +17,12 @@
       </div>
     }
 
-    <!-- Campo de búsqueda -->
     <input
       type="text"
       placeholder="Buscar habitación o motel..."
       [ngModel]="query()"
       (ngModelChange)="onQueryChange($event)" />
 
-    <!-- Resultados -->
     <div class="grid">
       @for (h of resultados(); track h.habitacionName) {
         <div class="card">

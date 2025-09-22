@@ -3,7 +3,6 @@
   <div class="buscar-container">
     <h2>Habitaciones disponibles</h2>
 
-    <!-- Filtros -->
     <div class="filters">
       <button 
         (click)="cambiarFiltro(0)" 
@@ -20,7 +19,6 @@
       }
     </div>
 
-    <!-- Grid de habitaciones -->
     <div class="grid">
       @for (habitacion of habitacionesFiltradas(); track habitacion.motelId) {
         <div class="card">

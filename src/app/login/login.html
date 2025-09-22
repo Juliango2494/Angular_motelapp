@@ -2,7 +2,7 @@
 <body>
     <div class="auth-container">
         <div class="auth-card" [class.flipped]="isRegisterMode">
-            <!-- Login -->
+            
             <div class="form login-form">
                 <h2>Iniciar Sesión</h2>
                 <form (ngSubmit)="login()">
@@ -14,7 +14,7 @@
                 <p class="message">{{ message }}</p>
             </div>
 
-            <!-- Registro -->
+            
             <div class="form register-form">
                 <h2>Registro</h2>
                 <form (ngSubmit)="register()">
