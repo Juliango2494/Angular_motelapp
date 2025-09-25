@@ -4,7 +4,6 @@ footer{
     justify-content: space-between;
     padding: 7px 50px;
     p{font-size: 18px;font-weight: bold;}
-    background-color: rgb(138, 36, 36);
     img{border-radius: 15px;height: 80px;};
     
 }

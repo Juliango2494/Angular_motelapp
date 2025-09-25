@@ -13,6 +13,9 @@
         justify-content: space-between;
         img{height: 80px;border-radius: 10px;}
     }
+    footer{
+        background-color: rgb(138, 36, 36);
+    }
     .navegacion{
         display: flex;
         flex-direction: row;
@@ -27,6 +30,19 @@
             border-radius: 4px;
             background-color: rgb(71, 17, 17);
             &:hover{background-color: rgb(96, 23, 23);font-size: 22px;color: white};
+        }
+    }
+    .cardos{
+        background-color: rgb(255, 255, 255);
+        padding: 40px;
+        color: rgb(12, 12, 12);
+        display: flex;
+        justify-content: center;
+        gap: 1%;
+        flex-wrap: wrap;
+        .card{
+            background-color: rgba(214, 214, 214, 0.397);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
     }
     .sesion{
@@ -74,9 +90,25 @@
         justify-content: space-between;
         img{height: 80px;border-radius: 10px;}
     }
+    footer{
+        background-color: rgb(71, 17, 17);
+        color: rgb(212, 107, 107);
+    }
     .fondoEstandar{
         background-color: black;
         h2{color: white;}
+    }
+    .cardos{
+        background-color: black;
+        padding: 40px;
+        color: aliceblue;
+        display: flex;
+        justify-content: center;
+        gap: 1%;
+        flex-wrap: wrap;
+        .card{
+            background-color: rgba(203, 204, 206, 0.89);
+        }
     }
     .navegacion{
         display: flex;

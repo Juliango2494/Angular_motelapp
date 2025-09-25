@@ -1,3 +1,4 @@
+
 body{
     display: flex;
     justify-content: center;
@@ -41,17 +42,8 @@ input{
     border: none;
     padding: 8px;
 }
-.cards{
-    background-color: black;
-    padding: 40px;
-    color: aliceblue;
-    display: flex;
-    justify-content: center;
-    gap: 1%;
-    flex-wrap: wrap;
-}
+
 .card{
-    background-color: rgba(240, 248, 255, 0.397);
     display: flex;
     padding: 10px;
     flex-direction: column;
